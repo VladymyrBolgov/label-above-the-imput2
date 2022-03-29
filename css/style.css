@@ -4,8 +4,9 @@
     padding: 20px;
 }
 .form-field{
-    margin-bottom: 20px;
     position: relative;
+    display: block;
+    margin-bottom: 20px;
 }
 .form-label{
     position: absolute;
@@ -13,30 +14,23 @@
     left: 40px;
     transform: translateY(-50%);
    
-
     transition: transform 250ms linear ;
 }
 .form-input{
     width: 100%;
     margin: 0;
     padding: 10px 20px;
+    padding-left: 40px;
     font: inherit;
     border-radius: 3px;
     border: 1px solid 2a2a2a;
 }
-/* + выбирает следующего соседа*/
-.form-input:focus + .form-label,
-.form-input:not(:placeholder-shown) + .form-label{
-    transform: translateY(-50px);
-    color: tomato;
-}
-/*.form-input:placeholder-shown{
-    background-color: red;
-}*/
+
 .icon{
     position: absolute;
     top: 50%;
     left: 10px;
+
     transform: translateY(-50%);
 
     display: inline-block;
@@ -44,7 +38,13 @@
     height: 20px;
     background-color: tomato;
 }
-/* тильда "~" этот зачек выбирает всех последующих соседей*/
-.form-input:focus ~ .icon{
+
+.form-field:focus-within > .icon{
     background-color: blue;
+}
+.form-field:focus-within > .form-label{
+    transform: translateY(-50%);
+}
+.form-input:not(:placeholder-swown) + .form-label{
+     transform: translateY(-50%);
 }
